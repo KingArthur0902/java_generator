@@ -6,6 +6,7 @@ import ${servicepackage}.${moduleName}.I${className}Service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.threadblocked.atspace.commons.base.*;
 
 <#include "/java_imports.include">
 @Service
@@ -13,7 +14,6 @@ public class ${className}Service extends BaseEntityManager<${className},${table.
 
 	private ${className}Dao ${classNameLower}Dao;
 
-	/**增加setXXXX()方法,spring就可以通过autowire自动设置对象属性,请注意大小写*/
     @Autowired
 	public void set${className}Dao(${className}Dao dao) {
 		this.${classNameLower}Dao = dao;

@@ -11,7 +11,8 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import com.iloosen.imall.commons.base.*;
+import com.threadblocked.atspace.commons.base.*;
+import com.threadblocked.atspace.commons.util.DateConvertUtils;
 
 import ${basepackage}.${moduleName}.domain.*;
 
@@ -48,10 +49,10 @@ public class ${className} extends BaseEntity{
 	</#list>
 	//columns END
 
-<@generateConstructor className/>
-<@generateJavaColumns/>
-<@generateJavaOneToMany/>
-<@generateJavaManyToOne/>
+	<@generateConstructor className/>
+	<@generateJavaColumns/>
+	<@generateJavaOneToMany/>
+	<@generateJavaManyToOne/>
 
 	public String toString() {
 		return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)

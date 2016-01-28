@@ -4,7 +4,7 @@
 package ${basepackage}.${moduleName}.dao;
 
 import org.springframework.stereotype.Repository;
-import com.iloosen.imall.commons.base.*;
+import com.threadblocked.atspace.commons.base.*;
 import ${basepackage}.${moduleName}.domain.*;
 
 @Repository
