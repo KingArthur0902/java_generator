@@ -33,8 +33,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cn.org.rapid_framework.page.Page;
-
 <#include "/java_imports.include">
 @Controller
 @RequestMapping("/admin/modules/${moduleName}/${classNameLowerCase}")
