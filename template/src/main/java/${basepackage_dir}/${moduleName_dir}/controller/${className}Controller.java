@@ -43,9 +43,7 @@ public class ${className}Controller extends BaseController{
     private static final String RESULT = "result";
 	
 	private I${className}Service ${classNameFirstLower}Service;
-	/** 
-	 * 增加setXXXX()方法,spring就可以通过autowire自动设置对象属性,注意大小写
-	 **/
+
 	public void set${className}Service(I${className}Service service) {
 		this.${classNameFirstLower}Service = service;
 	}
@@ -56,9 +54,6 @@ public class ${className}Controller extends BaseController{
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));  
 	}
 	   
-	/**
-	 * 增加了@ModelAttribute的方法可以在本controller方法调用前执行,可以存放一些共享变量,如枚举值,或是一些初始化操作
-	 */
 	@ModelAttribute
 	public void init(ModelMap model) {
 		model.put("now", new java.sql.Timestamp(System.currentTimeMillis()));
