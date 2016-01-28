@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -41,13 +42,10 @@ public class ${className}Controller extends BaseController{
 	protected static final String DEFAULT_SORT_COLUMNS = null;
     protected static final String RESULT_ACTION = "redirect:/result";
     private static final String RESULT = "result";
-	
+
+	@Autowired
 	private I${className}Service ${classNameFirstLower}Service;
 
-	public void set${className}Service(I${className}Service service) {
-		this.${classNameFirstLower}Service = service;
-	}
-	
 	/** binder用于bean属性的设置 */
 	@InitBinder  
 	public void initBinder(WebDataBinder binder) {  
