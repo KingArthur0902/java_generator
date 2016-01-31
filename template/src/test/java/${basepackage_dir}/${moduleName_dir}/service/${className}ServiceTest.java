@@ -2,10 +2,16 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.${moduleName}.service;
-import commons.base.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import cn.org.rapid_framework.page.Page;
+import ${basepackage}.${moduleName}.domain.${moduleName};
+import com.threadblocked.atspace.service.${moduleName}.I${moduleName};
 import org.junit.Test;
-import org.junit.Ignore;
+import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.org.rapid_framework.test.context.TestMethodContext;
 import static junit.framework.Assert.*;

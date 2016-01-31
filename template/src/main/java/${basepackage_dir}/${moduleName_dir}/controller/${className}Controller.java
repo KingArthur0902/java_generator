@@ -8,18 +8,13 @@
 package ${basepackage}.${moduleName}.controller;
 
 import ${servicepackage}.${moduleName}.I${className}Service;
-
 import java.util.Map;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import com.threadblocked.atspace.commons.base.BaseController;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
