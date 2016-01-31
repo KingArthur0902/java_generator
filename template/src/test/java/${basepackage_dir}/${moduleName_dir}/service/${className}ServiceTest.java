@@ -17,8 +17,9 @@ import cn.org.rapid_framework.test.context.TestMethodContext;
 import static junit.framework.Assert.*;
 
 <#include "/java_imports.include">
- @Ignore
-public class ${className}ServiceTest extends BaseManagerTestCase{
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"classpath:/spring/*.xml"})
+public class ${className}ServiceTest extends AbstractTransactionalJUnit4SpringContextTests{
 
 	private ${className}Service service;
 	
@@ -26,13 +27,6 @@ public class ${className}ServiceTest extends BaseManagerTestCase{
 	public void set${className}Service(${className}Service service) {
 		this.service = service;
 	}
-
-    @Override
-    protected String[] getDbUnitDataFiles() {
-        //通过 TestMethodContext.getMethodName() 可以得到当前正在运行的测试方法名称
-        return new String[]{"classpath:testdata/common.xml","classpath:testdata/${className}.xml",
-                            "classpath:testdata/${className}_"+TestMethodContext.getMethodName()+".xml"};
-    }
 
 	//数据库单元测试前会开始事务，结束时会回滚事务，所以测试方法可以不用关心测试数据的删除
 	@Test
