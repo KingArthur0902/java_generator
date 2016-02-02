@@ -33,10 +33,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/admin/modules/${moduleName}/${classNameLowerCase}")
 public class ${className}Controller extends BaseController{
-	//默认多列排序,example: username desc,createTime asc
-	protected static final String DEFAULT_SORT_COLUMNS = null;
-    protected static final String RESULT_ACTION = "redirect:/result";
-    private static final String RESULT = "result";
 
 	@Autowired
 	private I${className}Service ${classNameFirstLower}Service;

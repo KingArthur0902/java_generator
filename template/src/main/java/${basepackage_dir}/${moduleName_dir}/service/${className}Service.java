@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.threadblocked.atspace.commons.base.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 <#include "/java_imports.include">
 @Service
 public class ${className}Service extends BaseEntityManager<${className},${table.idColumn.javaType}> implements I${className}Service{
 
+
+    private Logger logger = LoggerFactory.getLogger(${className}.class);
 	private ${className}Dao ${classNameLower}Dao;
 
     @Autowired
