@@ -1,5 +1,6 @@
 /.idea
 /lib
 *.iml
+/temp/*
 /target
 dependency-reduced-pom.xml
