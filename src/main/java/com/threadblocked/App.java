@@ -26,9 +26,10 @@ public class App
 		//PRD_USER_PRODUCT_PROXY,PRD_PAGE_MODULE,PRD_PAGE_MODULE_OBJECT
 	    String tables = "navigate_category,navigate_item";
 
+        g.getGenerator().setTemplateRootDir("/home/arthur/workspace/threadblocked/generator/template");
 
         for(String table : tables.split(",")){
-           g.generateByTable(table,"template");
+           g.generateByTable(table);
         }
 //		g.generateByTable("table_name","template");	//通过数据库表生成文件,template为模板的根目录
 		//g.generateByAllTable("template");	//自动搜索数据库中的所有表并生成文件,template为模板的根目录

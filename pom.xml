@@ -13,12 +13,12 @@
     <artifactId>rapid-core</artifactId>
     <version>4.0.5</version>
   </dependency>
-
+  -->
   <dependency>
     <groupId>com.googlecode.rapid-framework</groupId>
     <artifactId>rapid-generator</artifactId>
     <version>4.0.5</version>
-  </dependency>-->
+  </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
