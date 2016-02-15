@@ -18,14 +18,15 @@ public class App
 //		g.printAllTableNames();				//打印数据库中的表名称
 
 		g.deleteOutRootDir();							//删除生成器的输出目录
-//        String tables = "PRD_INF_ARTICLE,PRD_BUSINESS_RULE,PRD_PAY_WAY,PRD_PRESENT,PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
-//        String tables = "SYS_PARAM_INF,SYS_COMMENT,SYS_COMMENT_SESSION";
+//      String tables = "PRD_INF_ARTICLE,PRD_BUSINESS_RULE,PRD_PAY_WAY,PRD_PRESENT,PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
+//      String tables = "SYS_PARAM_INF,SYS_COMMENT,SYS_COMMENT_SESSION";
 //      String tables = "PRD_INF_ARTICLE";
-//	      String tables = "PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
+//	    String tables = "PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
 
 		//PRD_USER_PRODUCT_PROXY,PRD_PAGE_MODULE,PRD_PAGE_MODULE_OBJECT
 	    String tables = "navigate_category,navigate_item";
 
+        //设置生成器的模板目录
         g.getGenerator().setTemplateRootDir("/home/arthur/workspace/threadblocked/generator/template");
 
         for(String table : tables.split(",")){
