@@ -43,7 +43,7 @@
               <transformers>
                 <transformer
                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.threadblocked.App</mainClass>
+                  <mainClass>com.threadblocked.GeneratorMain</mainClass>
                 </transformer>
               </transformers>
             </configuration>

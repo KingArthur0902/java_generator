@@ -7,7 +7,7 @@ import cn.org.rapid_framework.generator.GeneratorProperties;
  * Hello world!
  *
  */
-public class App 
+public class GeneratorMain
 {
     /**
 	 * 请直接修改以下代码调用不同的方法以执行相关生成任务.
