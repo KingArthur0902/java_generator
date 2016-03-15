@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 @Service
 public class ${className}Service extends BaseEntityManager<${className},${table.idColumn.javaType}> implements I${className}Service{
 
-
     private Logger logger = LoggerFactory.getLogger(${className}.class);
 	private ${className}Dao ${classNameLower}Dao;
 

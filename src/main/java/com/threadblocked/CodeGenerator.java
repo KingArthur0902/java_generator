@@ -7,9 +7,10 @@ import cn.org.rapid_framework.generator.GeneratorProperties;
  * Hello world!
  *
  */
-public class GeneratorMain
+public class CodeGenerator
 {
     /**
+     * @param args 接收表名，按照表来生成对于的模型
 	 * 请直接修改以下代码调用不同的方法以执行相关生成任务.
 	 */
 	public static void main(String[] args) throws Exception {
@@ -24,12 +25,12 @@ public class GeneratorMain
 //	    String tables = "PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
 
 		//PRD_USER_PRODUCT_PROXY,PRD_PAGE_MODULE,PRD_PAGE_MODULE_OBJECT
-	    String tables = "navigate_category,navigate_item";
+	    //String tables = "navigate_category,navigate_item";
 
         //设置生成器的模板目录
         g.getGenerator().setTemplateRootDir("/home/arthur/workspace/threadblocked/generator/template");
 
-        for(String table : tables.split(",")){
+        for(String table : args){
            g.generateByTable(table);
         }
 //		g.generateByTable("table_name","template");	//通过数据库表生成文件,template为模板的根目录

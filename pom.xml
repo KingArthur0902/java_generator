@@ -8,45 +8,39 @@
   <name>generator</name>
   <url>http://maven.apache.org</url>
   <dependencies>
- <!--   <dependency>
-    <groupId>com.googlecode.rapid-framework</groupId>
-    <artifactId>rapid-core</artifactId>
-    <version>4.0.5</version>
-  </dependency>
-  -->
-  <dependency>
-    <groupId>com.googlecode.rapid-framework</groupId>
-    <artifactId>rapid-generator</artifactId>
-    <version>4.0.5</version>
-  </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+        <groupId>com.googlecode.rapid-framework</groupId>
+        <artifactId>rapid-generator</artifactId>
+        <version>4.0.5</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>2.1</version>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.1.1</version>
         <executions>
           <execution>
-            <phase>package</phase>
+            <phase>test</phase>
             <goals>
-              <goal>shade</goal>
+              <goal>java</goal>
             </goals>
-            <configuration>
-              <transformers>
-                <transformer
-                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.threadblocked.GeneratorMain</mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
+              <configuration>
+                  <mainClass>com.threadblocked.CodeGenerator</mainClass>
+                  <arguments>
+                      <!--这里的参数传要进行建模的表-->
+                      <argument>navigate_category</argument>
+                      <argument>navigate_item</argument>
+                  </arguments>
+              </configuration>
           </execution>
         </executions>
       </plugin>

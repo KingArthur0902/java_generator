@@ -6,21 +6,24 @@
 		1.会为所有的property生成property_dir属性,如pkg=com.company => pkg_dir=com/company
 		2.可以引用环境变量: ${env.JAVA_HOME} or System.properties: ${user.home},property之间也可以相互引用
 	</comment>
-	
-    <entry key="basepackage">com.threadblocked.atspace.module</entry>
 
+	<!--定义模块的路径-->
+    <entry key="basepackage">com.threadblocked.atspace.module</entry>
+	<!--定义模块service的接口路径-->
     <entry key="servicepackage">com.threadblocked.atspace.service</entry>
 
 
 	<!-- jsp namespace: web/${namespace}/${className}/list.jsp -->
 	<entry key="namespace">pages</entry>
 
+	<!--生成代码的输出目录-->
 	<entry key="outRoot">/home/arthur/workspace/threadblocked/generator/temp</entry>
-	<entry key="templateRootDirs">/home/arthur/workspace/threadblocked/generator/template</entry>
+	<!--<entry key="templateRootDirs">/home/arthur/workspace/threadblocked/generator/template</entry>-->
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
 	<entry key="tableRemovePrefixes"></entry>
-	
+
+	<!--数据链接账号密码-->
 	<entry key="jdbc_username">atspace</entry>
 	<entry key="jdbc_password">atspace</entry>
 		

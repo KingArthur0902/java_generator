@@ -2,7 +2,6 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first>   
 package ${basepackage}.${moduleName}.dao;
-
 import org.springframework.stereotype.Repository;
 import com.threadblocked.atspace.commons.base.*;
 import ${basepackage}.${moduleName}.domain.*;

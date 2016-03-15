@@ -4,7 +4,6 @@
 <#assign classNameFirstLower = className?uncap_first>   
 <#assign classNameLowerCase = className?lower_case>   
 <#assign pkJavaType = table.idColumn.javaType>   
-
 package ${basepackage}.${moduleName}.controller;
 
 import ${servicepackage}.${moduleName}.I${className}Service;
