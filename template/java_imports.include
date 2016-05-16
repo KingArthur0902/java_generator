@@ -1,15 +1,11 @@
 <#assign className = table.className>
 import java.util.*;
 
-import cn.org.rapid_framework.util.*;
-import cn.org.rapid_framework.web.util.*;
-import cn.org.rapid_framework.page.*;
-import cn.org.rapid_framework.page.impl.*;
-
-import ${basepackage}.${moduleName}.domain.*;
-import ${basepackage}.${moduleName}.dao.*;
-import ${basepackage}.${moduleName}.service.*;
-import ${servicepackage}.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.zhiyou.taobao.TaobaoPrincipal;
 
 /**
  * @key gen www.threadblocked.com
