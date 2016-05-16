@@ -15,7 +15,7 @@ public class CodeGenerator
 	 */
 	public static void main(String[] args) throws Exception {
 		GeneratorFacade g = new GeneratorFacade();
-        GeneratorProperties.setProperty("moduleName", "navigate");
+        GeneratorProperties.setProperty("moduleName", "wapdetail");
 //		g.printAllTableNames();				//打印数据库中的表名称
 
 		g.deleteOutRootDir();							//删除生成器的输出目录
@@ -25,12 +25,12 @@ public class CodeGenerator
 //	    String tables = "PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
 
 		//PRD_USER_PRODUCT_PROXY,PRD_PAGE_MODULE,PRD_PAGE_MODULE_OBJECT
-	    //String tables = "navigate_category,navigate_item";
+	    String tables = "wapdetail_item,wapdetail_item_content,wapdetail_generate_parameter";
 
         //设置生成器的模板目录
         g.getGenerator().setTemplateRootDir("/home/arthur/workspace/threadblocked/generator/template");
 
-        for(String table : args){
+        for(String table : tables.split(",")){
            g.generateByTable(table);
         }
 //		g.generateByTable("table_name","template");	//通过数据库表生成文件,template为模板的根目录

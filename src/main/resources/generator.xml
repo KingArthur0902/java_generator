@@ -8,9 +8,9 @@
 	</comment>
 
 	<!--定义模块的路径-->
-    <entry key="basepackage">com.threadblocked.atspace.module</entry>
+    <entry key="basepackage">com.zhiyou.module</entry>
 	<!--定义模块service的接口路径-->
-    <entry key="servicepackage">com.threadblocked.atspace.service</entry>
+    <!--<entry key="servicepackage"></entry>-->
 
 
 	<!-- jsp namespace: web/${namespace}/${className}/list.jsp -->

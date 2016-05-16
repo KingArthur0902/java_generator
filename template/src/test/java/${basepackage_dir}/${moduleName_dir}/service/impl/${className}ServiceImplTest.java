@@ -1,10 +1,9 @@
 <#include "/java_copyright.include">
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first> 
-package ${basepackage}.${moduleName}.service;
-import cn.org.rapid_framework.page.Page;
-import ${basepackage}.${moduleName}.domain.${moduleName};
-import com.threadblocked.atspace.service.${moduleName}.I${moduleName};
+package ${basepackage}.${moduleName}.service.impl;
+import ${basepackage}.${moduleName}.domain.${className};
+import ${basepackage}.${moduleName}.${className}Service;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -12,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import cn.org.rapid_framework.test.context.TestMethodContext;
+import ${basepackage}.${moduleName}.repository.${className}Repository;
 import static junit.framework.Assert.*;
 
 <#include "/java_imports.include">
@@ -22,6 +20,8 @@ import static junit.framework.Assert.*;
 public class ${className}ServiceTest extends AbstractTransactionalJUnit4SpringContextTests{
 
 	private ${className}Service service;
+	@Autowired
+	private ${className}Repository ${classNameLower}Repo;
 	
 	@Autowired
 	public void set${className}Service(${className}Service service) {
@@ -33,24 +33,8 @@ public class ${className}ServiceTest extends AbstractTransactionalJUnit4SpringCo
 	public void crud() {
 
 		${className} obj = new${className}();
-		service.save(obj);
-		service.getEntityDao().flush();
-		
-		service.update(obj);
-		service.getEntityDao().flush();
-		
-	<#if table.compositeId>
-		assertNotNull(service.getById(obj.getId()));
-		
-		service.removeById(obj.getId());
-		service.getEntityDao().flush();
-	<#else>
-		assertNotNull(obj.get${table.idColumn.columnName}());
-		
-		service.removeById(obj.get${table.idColumn.columnName}());
-		service.getEntityDao().flush();
-	</#if>
-	
+		${classNameLower}Repo.saveAndFlush(obj);
+
 	}
 	
 	public static ${className} new${className}() {

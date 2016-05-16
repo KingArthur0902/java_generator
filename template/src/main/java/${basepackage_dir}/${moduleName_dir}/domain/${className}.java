@@ -5,32 +5,17 @@
 package ${basepackage}.${moduleName}.domain;
 import java.util.*;
 import javax.persistence.*;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import com.threadblocked.atspace.commons.base.*;
-import com.threadblocked.atspace.commons.util.DateConvertUtils;
-import ${basepackage}.${moduleName}.domain.*;
+import com.zhiyou.infra.spring.data.entity.AbstractEntity;
 
 @Entity
 @Table(name = "${table.sqlName}")
-public class ${className} extends BaseEntity{
-	private static final long serialVersionUID = 5454155825314635342L;
-	
+public class ${className} extends AbstractEntity<Long>{
+
 	//alias
 	public static final String TABLE_ALIAS = "${table.tableAlias}";
 	<#list table.columns as column>
 	public static final String ${column.constantName} = "${column.columnAlias}";
 	</#list>
-	
-	//date formats
-	<#list table.columns as column>
-	<#if column.isDateTimeColumn>
-	public static final String FORMAT_${column.constantName} = DATE_FORMAT;
-	</#if>
-	</#list>
-	
 	
 	//columns START
 	<#list table.columns as column>
@@ -47,69 +32,12 @@ public class ${className} extends BaseEntity{
 	//columns END
 
 	<@generateConstructor className/>
-	<@generateJavaColumns/>
 	<@generateJavaOneToMany/>
 	<@generateJavaManyToOne/>
 
-	public String toString() {
-		return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-		<#list table.columns as column>
-			.append("${column.constantName}",get${column.columnName}())
-		</#list>
-			.toString();
-	}
-	
-	public int hashCode() {
-		return new HashCodeBuilder()
-		<#list table.pkColumns as column>
-			.append(get${column.columnName}())
-		</#list>
-			.toHashCode();
-	}
-	
-	public boolean equals(Object obj) {
-		<#list table.columns as column>
-		<#if column.pk>
-		if(this.get${column.columnName}() == null){
-			return false;
-		}
-		</#if>
-		</#list>
-		if(!(obj instanceof ${className})){
-			return false;
-		}
-		if(this == obj) {
-			return true;
-		}
-		${className} other = (${className})obj;
-		return new EqualsBuilder()
-			<#list table.pkColumns as column>
-			.append(get${column.columnName}(),other.get${column.columnName}())
-			</#list>
-			.isEquals();
-	}
 }
 
-<#macro generateJavaColumns>
-	<#list table.columns as column>
-		<#if column.isDateTimeColumn>
-	public String get${column.columnName}String() {
-		return DateConvertUtils.format(get${column.columnName}(), FORMAT_${column.constantName});
-	}
-	public void set${column.columnName}String(String value) {
-		set${column.columnName}(DateConvertUtils.parse(value, FORMAT_${column.constantName},${column.javaType}.class));
-	}
-	
-		</#if>	
-	public void set${column.columnName}(${column.javaType} value) {
-		this.${column.columnNameLower} = value;
-	}
-	
-	public ${column.javaType} get${column.columnName}() {
-		return this.${column.columnNameLower};
-	}
-	</#list>
-</#macro>
+
 
 <#macro generateJavaOneToMany>
 	<#list table.exportedKeys.associatedTables?values as foreignKey>
