@@ -17,15 +17,15 @@
 	<entry key="namespace">pages</entry>
 
 	<!--生成代码的输出目录-->
-	<entry key="outRoot">/home/arthur/workspace/threadblocked/generator/temp</entry>
+	<entry key="outRoot">E:\workspace\idea\java_generator\dest\</entry>
 	<!--<entry key="templateRootDirs">/home/arthur/workspace/threadblocked/generator/template</entry>-->
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
 	<entry key="tableRemovePrefixes"></entry>
 
 	<!--数据链接账号密码-->
-	<entry key="jdbc_username">atspace</entry>
-	<entry key="jdbc_password">atspace</entry>
+	<entry key="jdbc_username">sa</entry>
+	<entry key="jdbc_password">zhiyou</entry>
 		
 	<!-- oracle需要指定jdbc.schema,并且可能要大写，其它数据库忽略此项配置  -->
 	<entry key="jdbc_schema"></entry>
@@ -41,9 +41,9 @@
 	<entry key="java.typemapping.java.sql.Clob">String</entry>
 	
 	<!-- Mysql -->
-	<entry key="jdbc_url">jdbc:mysql://localhost:3306/atspace?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<!--<entry key="jdbc_url">jdbc:mysql://localhost:3306/atspace?useUnicode=true&amp;characterEncoding=UTF-8</entry>
 	<entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>
-
+-->
 	<!-- Oracle		jdbc:oracle:oci:@tnsname_devdb
 	<entry key="jdbc.url">jdbc:oracle:thin:@192.168.0.177:1521:[sid]</entry>
 	<entry key="jdbc.driver">oracle.jdbc.driver.OracleDriver</entry>
@@ -54,10 +54,10 @@
 	<entry key="jdbc.driver">com.microsoft.jdbc.sqlserver.SQLServerDriver</entry>
 	-->
 	
-	<!-- SQLServer2005 
-	<entry key="jdbc.url">jdbc:sqlserver://192.168.0.98:1433;DatabaseName=[database]</entry>
-	<entry key="jdbc.driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</entry>
-	-->
+	<!-- SQLServer2005 -->
+	<entry key="jdbc_url">jdbc:sqlserver://192.168.1.117:1433;databaseName=cxb_1</entry>
+	<entry key="jdbc_driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</entry>
+
 
 	<!-- JTDs for SQLServer 
 	<entry key="jdbc.url">jdbc:jtds:sqlserver://192.168.0.102:1433/[database];tds=8.0;lastupdatecount=true</entry>

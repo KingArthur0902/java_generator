@@ -28,7 +28,7 @@ public class CodeGenerator
 	    String tables = "wapdetail_item,wapdetail_item_content,wapdetail_generate_parameter";
 
         //设置生成器的模板目录
-        g.getGenerator().setTemplateRootDir("/home/arthur/workspace/threadblocked/generator/template");
+        g.getGenerator().setTemplateRootDir("E:\\workspace\\idea\\java_generator\\template\\");
 
         for(String table : tables.split(",")){
            g.generateByTable(table);
@@ -39,6 +39,6 @@ public class CodeGenerator
 		 
 //		g.deleteByTable("table_name", "template"); //删除生成的文件
 		//打开文件夹
-		//Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
+		Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
 	}
 }
