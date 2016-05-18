@@ -32,12 +32,32 @@ public class ${className} extends AbstractEntity<Long>{
 	//columns END
 
 	<@generateConstructor className/>
+	<@generateJavaColumns/>
 	<@generateJavaOneToMany/>
 	<@generateJavaManyToOne/>
 
 }
 
+<#macro generateJavaColumns>
+<#list table.columns as column>
+<#if column.isDateTimeColumn>
+	public String get${column.columnName}String() {
+		return DateConvertUtils.format(get${column.columnName}(), FORMAT_${column.constantName});
+	}
+	public void set${column.columnName}String(String value) {
+		set${column.columnName}(DateConvertUtils.parse(value, FORMAT_${column.constantName},${column.javaType}.class));
+	}
 
+</#if>
+	public void set${column.columnName}(${column.javaType} value) {
+		this.${column.columnNameLower} = value;
+	}
+
+	public ${column.javaType} get${column.columnName}() {
+		return this.${column.columnNameLower};
+	}
+</#list>
+</#macro>
 
 <#macro generateJavaOneToMany>
 	<#list table.exportedKeys.associatedTables?values as foreignKey>

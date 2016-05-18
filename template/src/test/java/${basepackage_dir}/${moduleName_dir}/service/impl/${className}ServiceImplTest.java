@@ -5,14 +5,14 @@ package ${basepackage}.${moduleName}.service.impl;
 import ${basepackage}.${moduleName}.domain.${className};
 import ${basepackage}.${moduleName}.${className}Service;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ${basepackage}.${moduleName}.repository.${className}Repository;
-import static junit.framework.Assert.*;
+import junit.framework.Assert.*;
 
 <#include "/java_imports.include">
 @RunWith(SpringJUnit4ClassRunner.class)
