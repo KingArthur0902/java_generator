@@ -3,7 +3,7 @@
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.${moduleName}.service.impl;
 import ${basepackage}.${moduleName}.domain.${className};
-import ${basepackage}.${moduleName}.${className}Service;
+import ${basepackage}.${moduleName}.service.${className}Service;
 import org.junit.Test;
 import org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -17,18 +17,14 @@ import junit.framework.Assert.*;
 <#include "/java_imports.include">
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/spring/*.xml"})
-public class ${className}ServiceTest extends AbstractTransactionalJUnit4SpringContextTests{
+public class ${className}ServiceImplTest extends AbstractTransactionalJUnit4SpringContextTests{
 
+	@Autowired
 	private ${className}Service service;
 	@Autowired
 	private ${className}Repository ${classNameLower}Repo;
 	
-	@Autowired
-	public void set${className}Service(${className}Service service) {
-		this.service = service;
-	}
 
-	//数据库单元测试前会开始事务，结束时会回滚事务，所以测试方法可以不用关心测试数据的删除
 	@Test
 	public void crud() {
 

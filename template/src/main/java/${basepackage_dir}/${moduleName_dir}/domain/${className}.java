@@ -3,7 +3,6 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.${moduleName}.domain;
-import java.util.*;
 import javax.persistence.*;
 import com.zhiyou.infra.spring.data.entity.AbstractEntity;
 
@@ -40,22 +39,38 @@ public class ${className} extends AbstractEntity<Long>{
 
 <#macro generateJavaColumns>
 <#list table.columns as column>
-<#if column.isDateTimeColumn>
-	public String get${column.columnName}String() {
-		return DateConvertUtils.format(get${column.columnName}(), FORMAT_${column.constantName});
-	}
-	public void set${column.columnName}String(String value) {
-		set${column.columnName}(DateConvertUtils.parse(value, FORMAT_${column.constantName},${column.javaType}.class));
+	<#if column.pk>
+	public void setId(${column.javaType} ${column.columnName}) {
+		this.${column.columnNameLower} = ${column.columnName};
 	}
 
-</#if>
-	public void set${column.columnName}(${column.javaType} value) {
-		this.${column.columnNameLower} = value;
+	public ${column.javaType} getId() {
+		return this.${column.columnNameLower};
+	}
+	<#if column.columnName != 'Id'>
+	public void set${column.columnName}(${column.javaType} ${column.columnName}) {
+		this.${column.columnNameLower} = ${column.columnName};
+	}
+	@Transient
+	public ${column.javaType} get${column.columnName}() {
+		return this.${column.columnNameLower};
+	}
+	</#if>
+
+
+
+	</#if>
+	<#if !column.pk>
+	public void set${column.columnName}(${column.javaType} ${column.columnName}) {
+		this.${column.columnNameLower} = ${column.columnName};
 	}
 
 	public ${column.javaType} get${column.columnName}() {
 		return this.${column.columnNameLower};
 	}
+	</#if>
+
+
 </#list>
 </#macro>
 

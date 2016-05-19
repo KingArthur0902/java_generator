@@ -15,7 +15,7 @@ public class CodeGenerator
 	 */
 	public static void main(String[] args) throws Exception {
 		GeneratorFacade g = new GeneratorFacade();
-        GeneratorProperties.setProperty("moduleName", "wapdetail");
+        GeneratorProperties.setProperty("moduleName", "wapdetail_t");
 //		g.printAllTableNames();				//打印数据库中的表名称
 
 		g.deleteOutRootDir();							//删除生成器的输出目录
@@ -39,6 +39,6 @@ public class CodeGenerator
 		 
 //		g.deleteByTable("table_name", "template"); //删除生成的文件
 		//打开文件夹
-		Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
+		//Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
 	}
 }

@@ -6,7 +6,7 @@
 <#assign pkJavaType = table.idColumn.javaType>   
 package ${basepackage}.${moduleName}.rest;
 
-import ${basepackage}.${moduleName}.${className}Service;
+import ${basepackage}.${moduleName}.service.${className}Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
