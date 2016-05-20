@@ -19,13 +19,8 @@ public class ${className} extends AbstractEntity<Long>{
 	//columns START
 	<#list table.columns as column>
 	/**
-	 * ${column.columnAlias!}	   db_column: ${column.sqlName} 
+	 * db_column: ${column.sqlName}
 	 */	
-	<#if column.pk>
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	</#if>
-	@Column(name = "${column.sqlName}", unique = ${column.unique?string}, nullable = ${column.nullable?string}, insertable = true, updatable = true, length = ${column.size})
 	private ${column.javaType} ${column.columnNameLower};
 	</#list>
 	//columns END
@@ -40,33 +35,35 @@ public class ${className} extends AbstractEntity<Long>{
 <#macro generateJavaColumns>
 <#list table.columns as column>
 	<#if column.pk>
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "${column.sqlName}", unique = ${column.unique?string}, nullable = ${column.nullable?string}, insertable = true, updatable = true, length = ${column.size})
+	public ${column.javaType} getId() {
+		return this.${column.columnNameLower};
+	}
+
 	public void setId(${column.javaType} ${column.columnName}) {
 		this.${column.columnNameLower} = ${column.columnName};
 	}
 
-	public ${column.javaType} getId() {
-		return this.${column.columnNameLower};
-	}
 	<#if column.columnName != 'Id'>
-	public void set${column.columnName}(${column.javaType} ${column.columnName}) {
-		this.${column.columnNameLower} = ${column.columnName};
-	}
 	@Transient
 	public ${column.javaType} get${column.columnName}() {
 		return this.${column.columnNameLower};
 	}
-	</#if>
-
-
-
-	</#if>
-	<#if !column.pk>
 	public void set${column.columnName}(${column.javaType} ${column.columnName}) {
 		this.${column.columnNameLower} = ${column.columnName};
 	}
-
+	</#if>
+	</#if>
+	<#if !column.pk>
+	@Column(name = "${column.sqlName}", unique = ${column.unique?string}, nullable = ${column.nullable?string}, insertable = true, updatable = true, length = ${column.size})
 	public ${column.javaType} get${column.columnName}() {
 		return this.${column.columnNameLower};
+	}
+
+	public void set${column.columnName}(${column.javaType} ${column.columnName}) {
+		this.${column.columnNameLower} = ${column.columnName};
 	}
 	</#if>
 

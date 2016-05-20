@@ -22,7 +22,7 @@ public class CodeGenerator {
         //String tables = "PRD_INF_ARTICLE";
         //String tables = "PRD_DELIVERY_LOGISTICS_COMPANY,PRD_DELIVERY_WAY,PRD_DELIVERY_RULE,PRD_DELIVERY_RULE_ZONE_RELATIONSHIP";
 
-        String tables = "wapdetail_item,wapdetail_item_content,wapdetail_generate_parameter";
+        String tables = "wapdetail_item_t,wapdetail_item_content_t,wapdetail_generate_parameter_t";
 
         //设置生成器的模板目录
         g.getGenerator().setTemplateRootDir("E:\\workspace\\idea\\java_generator\\template\\");
@@ -36,6 +36,6 @@ public class CodeGenerator {
 
         //g.deleteByTable("table_name", "template"); //删除生成的文件
         //打开文件夹
-        //Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
+        Runtime.getRuntime().exec("cmd.exe /c start "+GeneratorProperties.getRequiredProperty("outRoot"));
     }
 }
